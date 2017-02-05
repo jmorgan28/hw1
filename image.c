@@ -8,7 +8,7 @@
 
 
 int main(){
-  char * store = malloc(sizeof(char *));
+  char * store = (char *) malloc(25);
   int fd = open("firstimage.ppm", O_CREAT | O_WRONLY | O_TRUNC, 0644 );
   sprintf(store, "P3 750 750 255\n");
   write(fd,store, strlen(store));
