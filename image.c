@@ -13,6 +13,11 @@ int main(){
   sprintf(store, "P3 750 750 255\n");
   write(fd,store, strlen(store));
   int i, f, r, g, b;
+  i = 0;
+  f = 0;
+  r = 0;
+  g = 0;
+  b = 0;
   while(i < 750){
     while(f < 750){
       r = 245;
