@@ -8,15 +8,18 @@
 
 
 int main(){
-  int fd = open("firstimage.ppm", O_CREAT | O_WRONLY, 0644 );
-  write(fd, "P3 500 500 255\n", 15);
-  int i = 0;
-  int f = 0;
-  while(i < 500){
-    while(f < 500){
-      write(fd,"33",2);
-      write(fd,"94",2);
-      write(fd,"200",2);
+  char * store = malloc(sizeof(char *));
+  int fd = open("firstimage.ppm", O_CREAT | O_WRONLY | O_TRUNC, 0644 );
+  sprintf(store, "P3 750 750 255\n");
+  write(fd,store, strlen(store));
+  int i, f, r, g, b;
+  while(i < 750){
+    while(f < 750){
+      r = 245;
+      g = 120;
+      b = 11;
+      sprintf(store, "%d %d %d\n", r,g,b);
+      write(fd,store,strlen(store));
       f ++;
     }
     i ++;
